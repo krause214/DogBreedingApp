@@ -1,0 +1,10 @@
+my\babincev\spring\config\MySpringMvcDispatcherServletInitializer.class
+my\babincev\spring\controllers\AnimalController.class
+my\babincev\spring\dao\AnimalDAO.class
+my\babincev\spring\dao\PersonDAO.class
+my\babincev\spring\controllers\FirstController.class
+my\babincev\spring\config\SpringConfig.class
+my\babincev\spring\models\Animal.class
+my\babincev\spring\controllers\PeopleController.class
+my\babincev\spring\models\Person.class
+my\babincev\spring\controllers\SecondController.class

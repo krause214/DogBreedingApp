@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th = "http://thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Dog</title>
+</head>
+<body>
+
+<p th:text="${dog.getName()}">name</p>
+<p th:text="${dog.getType()}">type</p>
+<p th:text="${dog.getId()}">id</p>
+
+<a th:href="@{/dogs/{id}/edit(id=${dog.getId()})}">Edit</a>
+
+<form th:method="DELETE" th:action="@{/dogs/{id}(id=${dog.getId()})}">
+    <input type="submit" value="Delete dog"/>
+</form>
+
+</body>
+</html>

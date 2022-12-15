@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th = "http://thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>New dog</title>
+</head>
+<body>
+
+<form th:method="POST" th:action="@{/dogs}" th:object="${dog}">
+    <label for="name">Enter name</label>
+    <input type="text" th:field="*{name}" id="name">
+    <br/>
+
+    <label for="type">Enter type</label>
+    <input type="text" th:field="*{type}" id="type">
+    <br/>
+
+    <input type="submit" value="Create new dog!">
+</form>
+
+</body>
+</html>

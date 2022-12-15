@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th = "http://thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>New dog</title>
+</head>
+<body>
+
+<form th:method="POST" th:action="@{/dogs}" th:object="${dog}">
+    <label for="id">Id</label>
+    <input type="text" th:field="*{id}" id="id"/>
+    <br/>
+
+    <label for="name">Name</label>
+    <input type="text" th:field="*{name}" id="name"/>
+    <br/>
+
+    <label for="breed">Breed id</label>
+    <input type="text" th:field="*{breedId}" id="breed"/>
+    <br/>
+
+    <label for="owner">Owner</label>
+    <input type="text" th:field="*{owner}" id="owner"/>
+    <br/>
+
+    <label for="address">Address</label>
+    <input type="text" th:field="*{address}" id="address"/>
+    <br/>
+
+    <label for="mental">Mental test</label>
+    <input type="text" th:field="*{mentalTest}" id="mental"/>
+    <br/>
+
+    <label for="alive">Is Alive</label>
+    <input type="checkbox" name="alive" th:checked="*{alive}" id="alive"/>
+    <br/>
+
+
+
+    <input type="submit" value="Create new dog!">
+</form>
+
+</body>
+</html>
