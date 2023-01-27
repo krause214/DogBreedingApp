@@ -1,10 +1,23 @@
 package my.babincev.spring.models;
 
+import javax.validation.constraints.NotEmpty;
+import javax.validation.constraints.Pattern;
+import javax.validation.constraints.Size;
+
 public class Dog {
+    @NotEmpty(message = "Empty name is not allowed!")
+    @Size(min = 2, max = 30, message = "Name should be between 2 and 30 characters")
     private String name;
+    @NotEmpty(message = "Empty owner name is not allowed!")
+    @Size(min = 2, max = 30, message = "Owner name should be between 2 and 30 characters")
     private String owner;
+
     private int id;
     private int breedId;
+
+    //Country, City, index(6 digits)
+    @NotEmpty(message = "Empty address name is not allowed!")
+    @Pattern(regexp = "[A-Z]\\w+, [A-Z]\\w+, \\d{6}", message = "Address should be in pattern: Country, City, index(6 digits)")
     private String address;
     private boolean alive;
     private int mentalTest;

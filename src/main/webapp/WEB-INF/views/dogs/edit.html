@@ -9,18 +9,22 @@
 <form th:method="PATCH" th:action="@{/dogs/{id}(id=${dog.getId()})}" th:object="${dog}">
     <label for="name">Name</label>
     <input type="text" th:field="*{name}" id="name"/>
+    <div style="color:red" th:if="${#fields.hasErrors('name')}" th:errors="*{name}">Name error</div>
     <br/>
 
     <label for="owner">Owner</label>
     <input type="text" th:field="*{owner}" id="owner"/>
+    <div style="color:red" th:if="${#fields.hasErrors('owner')}" th:errors="*{owner}">Owner name error</div>
     <br/>
 
     <label for="address">Address</label>
     <input type="text" th:field="*{address}" id="address"/>
+    <div style="color:red" th:if="${#fields.hasErrors('address')}" th:errors="*{address}">Address error</div>
     <br/>
 
     <label for="mental">Mental test</label>
     <input type="text" th:field="*{mentalTest}" id="mental"/>
+    <div style="color:red" th:if="${#fields.hasErrors('mentalTest')}" th:errors="*{mentalTest}">Mental test error</div>
     <br/>
 
     <label for="alive">Is Alive</label>

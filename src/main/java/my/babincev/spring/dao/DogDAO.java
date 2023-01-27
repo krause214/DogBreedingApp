@@ -9,6 +9,7 @@ import javax.annotation.PostConstruct;
 import java.sql.*;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Optional;
 
 @Component
 public class DogDAO {
@@ -24,14 +25,19 @@ public class DogDAO {
 
     private ArrayList<Dog> dogs;
 
+    public Optional<Dog> getDog(String name, String address){
+        return jdbcTemplate.query("SELECT * FROM dog WHERE dog_name=? AND address=?", new Object[]{name, address},
+                new DogMapper()).stream().findAny();
+    }
+
     public List<Dog> getDogs(){
         return jdbcTemplate.query("SELECT * FROM dog", new DogMapper());
     }
 
     public void addDog(Dog dog){
-        jdbcTemplate.update("INSERT INTO dog VALUES(?,?,?,?,?,?,?)", dog.getId(), dog.getName(),
-                dog.getBreedId(), dog.getOwner(), dog.getAddress(), dog.isAlive(),
-                dog.getMentalTest());
+        jdbcTemplate.update("INSERT INTO dog(dog_name, breed_id, owner, address, is_alive, mental_test)" +
+                        " VALUES(?,?,?,?,?,?)", dog.getName(), dog.getBreedId(), dog.getOwner(),
+                dog.getAddress(), dog.isAlive(), dog.getMentalTest());
     }
 
     public Dog getDog(int id) {
